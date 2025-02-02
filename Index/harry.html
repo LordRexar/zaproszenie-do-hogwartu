@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaproszenie do Hogwartu</title>
+    <style>
+        body {
+            background: url('https://static.wikia.nocookie.net/hogwart-fanon/images/5/55/Wielka_sala.jpg/revision/latest?cb=20220103113147&path-prefix=pl') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .map-container {
+            position: relative;
+            cursor: pointer;
+        }
+        .map {
+            width: 100%;
+            max-width: 500px;
+            transition: transform 1s ease-in-out;
+        }
+        .map.open {
+            transform: scale(2.5) translateY(50px);
+        }
+        .parchment {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/3/3d/Parchment_texture.jpg');
+            background-size: cover;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            border: 10px solid #8B4513;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+            font-family: 'Georgia', serif;
+            animation: fadeIn 2s ease-in;
+            display: none;
+        }
+        .houses {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .houses img {
+            width: 80px;
+            height: auto;
+            background: none;
+        }
+        .houses div {
+            text-align: center;
+            font-weight: bold;
+            color: #5a2d0c;
+        }
+        h1 {
+            font-size: 24px;
+            color: #5a2d0c;
+        }
+        p {
+            font-size: 18px;
+        }
+        .highlight {
+            color: white;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .magic-glow {
+            text-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 30px gold;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 30px gold; }
+            to { text-shadow: 0 0 20px white, 0 0 30px white, 0 0 40px white; }
+        }
+    </style>
+    <script>
+        function openMap() {
+            document.querySelector('.map').classList.add('open');
+            setTimeout(() => {
+                document.querySelector('.map-container').style.display = 'none';
+                document.querySelector('.parchment').style.display = 'block';
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <iframe width="0" height="0" src="https://www.youtube.com/embed/wtHra9tFISY?autoplay=1&loop=1" frameborder="0" allow="autoplay" style="display: none;"></iframe>
+    <div class="map-container" onclick="openMap()">
+        <img class="map" src="https://static.posters.cz/image/750/229767.jpg" alt="Mapa Huncwotów">
+    </div>
+    <div class="parchment">
+        <div class="houses">
+            <div><img src="https://e1.pngegg.com/pngimages/542/343/png-clipart-harry-potter-gryffindor-logo-thumbnail.png" alt="Gryffindor"><br>Gryffindor</div>
+            <div><img src="https://e7.pngegg.com/pngimages/546/868/png-clipart-harry-potter-slytherin-symbol-slytherin-house-hogwarts-harry-potter-gryffindor-ravenclaw-house-harry-potter-emblem-logo.png" alt="Slytherin"><br>Slytherin</div>
+            <div><img src="https://e7.pngegg.com/pngimages/537/516/png-clipart-huffle-puff-logo-illustration-helga-hufflepuff-hogwarts-harry-potter-and-the-deathly-hallows-gryffindor-harry-potter-helga-hufflepuff-hogwarts-thumbnail.png" alt="Hufflepuff"><br>Hufflepuff</div>
+            <div><img src="https://i.pinimg.com/736x/d0/57/d0/d057d0f47b998653b6db4dffc574cb64.jpg" alt="Ravenclaw"><br>Ravenclaw</div>
+        </div>
+        <h1 class="magic-glow">Zaproszenie do Hogwartu!</h1>
+        <p class="highlight">Drogi czarodzieju i czarownico,</p>
+        <p class="highlight">Masz zaszczyt dołączyć do naszej magicznej uczty urodzinowej! Przygotuj swoją różdżkę i pelerynę, 
+        bo czekają na Ciebie niezwykłe przygody w świecie magii!
+	Wejdą tylko prawdziwi czarodzieje i czarodziejki więc lepiej przygotój strój!</p>
+        <p class="highlight">Data: <strong>01.03.2025</strong></p>
+        <p class="highlight">Miejsce: <strong>Dom Belatrix Lestrange, Wielka Sala</strong></p>
+        <p class="magic-glow highlight">Przybycie obowiązkowe! Expecto Patronum!</p>
+    </div>
+</body>
+</html>
